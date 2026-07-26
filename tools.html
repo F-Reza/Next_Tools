@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Digit | Next Tech, Next Innovation, Next Solution</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-color: #0d6efd;
+            --primary-dark: #3730a3;
+            --secondary-color: #06b6d4;
+        }
+
+        @font-face {
+            font-family: HindS-iliguri-Regular;
+            src: url('assets/fonts/HindSiliguri-Light.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: HindS-iliguri-Bold;
+            src: url('assets/fonts/HindSiliguri-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: HindS-iliguri-Light;
+            src: url('assets/fonts/HindSiliguri-Light.ttf') format('truetype');
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: HindS-iliguri-Regular,sans-serif;
+            line-height: 1.3;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* light theme (default) */
+        body.light {
+            background-color: #f5f8ff;
+            color: #1a2332;
+        }
+
+        .home-link {
+            text-decoration: none;
+        }
+
+        body.light .navbar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        body.light .logo-text {
+            background: linear-gradient(145deg, #1a2b4a, #3c5a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.light .logo-text span {
+            color: #4a6a9a;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        body.light .nav-links a {
+            color: #2c3e5e;
+        }
+
+        body.light .nav-links a:hover {
+            color: #0d1b36;
+        }
+
+        body.light .hero-badge {
+            background: rgba(30, 70, 150, 0.08);
+            border-color: rgba(30, 70, 150, 0.15);
+            color: #1e4a8a;
+        }
+
+        body.light .hero p {
+            color: #2f405f;
+        }
+
+        body.light .grid-item {
+            background: rgba(230, 240, 255, 0.7);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.light .grid-item span {
+            color: #1a2b4a;
+        }
+
+        body.light .grid-item small {
+            color: #4a6a8a;
+        }
+
+        body.light .service-card {
+            background: rgba(230, 240, 255, 0.5);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.light .service-card:hover {
+            background: rgba(210, 225, 255, 0.7);
+            border-color: rgba(30, 70, 150, 0.2);
+            box-shadow: 0 16px 40px rgba(0, 20, 60, 0.08);
+        }
+
+        body.light .service-card p {
+            color: #2f405f;
+        }
+
+        body.light .stats {
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        body.light .stat-label {
+            color: #2c4a6a;
+        }
+
+        body.light .solutions-text p {
+            color: #2f405f;
+        }
+
+        body.light .solutions-visual {
+            background: rgba(230, 240, 255, 0.5);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.light .solutions-visual p {
+            color: #2f405f;
+        }
+
+        body.light .solutions-visual div {
+            background: rgba(30, 70, 150, 0.06);
+            border-left-color: #2a6aff;
+        }
+
+        body.light .solutions-visual div span {
+            color: #1a2b4a;
+        }
+
+        body.light .footer {
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        body.light .footer p {
+            color: #3a5a7a;
+        }
+
+        body.light .footer-links a {
+            color: #2c4a6a;
+        }
+
+        body.light .footer-links a:hover {
+            color: #0d1b36;
+        }
+
+        body.light .footer-socials a {
+            color: #3a5a7a;
+        }
+
+        body.light .footer-socials a:hover {
+            color: #0d1b36;
+        }
+
+        body.light .footer-brand .logo-text {
+            background: linear-gradient(145deg, #1a2b4a, #3c5a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.light .footer-brand .logo-text span {
+            color: #4a6a9a;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        body.light .section-sub {
+            color: #2f4a6a;
+        }
+
+        body.light .hero h1 .highlight {
+            background: linear-gradient(145deg, #1a4a8a, #6a4aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.light .contact-card {
+            background: rgba(230, 240, 255, 0.6);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.light .contact-card input,
+        body.light .contact-card textarea {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #1a2332;
+        }
+
+        body.light .contact-card input:focus,
+        body.light .contact-card textarea:focus {
+            border-color: #2a6aff;
+            box-shadow: 0 0 0 3px rgba(42, 106, 255, 0.1);
+        }
+
+        body.light .project-card {
+            background: rgba(230, 240, 255, 0.5);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.light .project-card:hover {
+            background: rgba(210, 225, 255, 0.7);
+            border-color: rgba(30, 70, 150, 0.2);
+        }
+
+        body.light .process-step {
+            background: rgba(230, 240, 255, 0.5);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        /* dark theme (default) */
+        body.dark {
+            background-color: #0b0d10;
+            color: #e8edf5;
+        }
+
+        body.dark .navbar {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark .logo-text {
+            background: linear-gradient(145deg, #ffffff, #b0c7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.dark .logo-text span {
+            color: #7b8cae;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        body.dark .nav-links a {
+            color: #b8c7e6;
+        }
+
+        body.dark .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        body.dark .hero-badge {
+            background: rgba(79, 159, 255, 0.12);
+            border-color: rgba(79, 159, 255, 0.25);
+            color: #92b9ff;
+        }
+
+        body.dark .hero p {
+            color: #b0c3df;
+        }
+
+        body.dark .grid-item {
+            background: rgba(20, 28, 45, 0.6);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        body.dark .grid-item span {
+            color: #c8d9fc;
+        }
+
+        body.dark .grid-item small {
+            color: #7b8db0;
+        }
+
+
+        body.dark .next-tools-item {
+            background: rgba(20, 28, 45, 0.5);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        body.dark .next-tools-item:hover {
+            background: rgba(30, 40, 60, 0.6);
+            border-color: rgba(79, 159, 255, 0.2);
+        }
+
+        
+        body.dark .footer {
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        body.dark .footer p {
+            color: #7b8db0;
+        }
+
+        body.dark .footer-links a {
+            color: #b0c3df;
+        }
+
+        body.dark .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        body.dark .footer-socials a {
+            color: #8fa2c7;
+        }
+
+        body.dark .footer-socials a:hover {
+            color: #ffffff;
+        }
+
+        body.dark .footer-brand .logo-text {
+            background: linear-gradient(145deg, #ffffff, #b0c7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.dark .footer-brand .logo-text span {
+            color: #7b8cae;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        body.dark .section-sub {
+            color: #a0b6da;
+        }
+
+        body.dark .hero h1 .highlight {
+            background: linear-gradient(145deg, #4f9fff, #b47aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        /* shared */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            background: linear-gradient(145deg, #4f9fff, #7b61ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-weight: 500;
+            font-size: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4f9fff, #7b61ff);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(145deg, #4f9fff, #7b61ff);
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #ffffff !important;
+            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(79, 159, 255, 0.25);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(79, 159, 255, 0.4);
+            color: #fff !important;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 0.4rem 0.8rem;
+            color: inherit;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        body.light .theme-toggle {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.08);
+            color: #1a2332;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(79, 159, 255, 0.15);
+        }
+
+        .lang-toggle {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        body.light .lang-toggle {
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #1a2332;
+        }
+
+        .lang-toggle:hover {
+            background: rgba(79, 159, 255, 0.08);
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 0 6rem 0;
+            gap: 2.5rem;
+        }
+
+        .hero-content {
+            flex: 1 1 500px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 1.8rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 550px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, #4f9fff, #7b61ff);
+            padding: 0.9rem 2.4rem;
+            border-radius: 60px;
+            font-weight: 600;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 20px rgba(79, 159, 255, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .btn-primary i {
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(79, 159, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            padding: 0.9rem 2.4rem;
+            border-radius: 60px;
+            font-weight: 600;
+            border: 1.5px solid #3e4f6e;
+            color: #d0def5;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        body.light .btn-outline {
+            border-color: #a0b8da;
+            color: #1a2b4a;
+        }
+
+        .btn-outline:hover {
+            border-color: #7b61ff;
+            color: #ffffff;
+            background: rgba(123, 97, 255, 0.08);
+        }
+
+        body.light .btn-outline:hover {
+            color: #1a2b4a;
+            background: rgba(123, 97, 255, 0.06);
+        }
+
+        .hero-visual {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            padding: 1.8rem;
+            border-radius: 48px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(2px);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        body.light .hero-grid {
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .grid-item {
+            backdrop-filter: blur(4px);
+            padding: 1.5rem 0.8rem;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.2s;
+        }
+
+        .grid-item i {
+            font-size: 2.2rem;
+            background: linear-gradient(145deg, #4f9fff, #b47aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .grid-item span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .grid-item small {
+            display: block;
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            max-width: 600px;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+
+
+        /* next-tools section */
+        .next-tools-section {
+            padding: 3rem 0 5rem 0;
+        }
+
+        .next-tools-gird {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .next-tools-item {
+            padding: 1.2rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
+            text-align: center;
+            transition: 0.25s;
+            cursor: default;
+        }
+
+        .next-tools-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .next-tools-item i {
+            font-size: 1.6rem;
+            background: linear-gradient(145deg, #4f9fff, #b47aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .next-tools-item span {
+            display: block;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+
+        .next-tools-gird a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+
+        /* Footer Section  */
+        .footer {
+            padding: 3rem 0 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+        .footer-brand-next {
+            max-width: 316px;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.8rem;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.4rem;
+            font-size: 1.4rem;
+        }
+
+        .footer-socials a {
+            transition: 0.2s;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links-next {
+            gap: 1rem;
+            margin-top: 25px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+        }
+
+        .footer-contact i {
+            margin-right: 6px;
+        }
+
+        .bottom-bar {
+            text-align: center;
+            padding: 1.5rem 0 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.85rem;
+        }
+
+        body.light .bottom-bar {
+            border-color: rgba(0, 0, 0, 0.04);
+            color: #4a6a8a;
+        }
+
+        /* WhatsApp Chat Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .whatsapp-btn .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid white;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        /* Rocket Go to Top Button */
+        .go-to-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(30px) scale(0.8);
+            overflow: hidden;
+        }
+
+        body.dark .go-to-top-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+        }
+
+        .go-to-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .go-to-top-btn:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.5);
+        }
+
+        .go-to-top-btn:hover .fa-rocket {
+            animation: rocketHover 0.5s ease infinite alternate;
+        }
+
+        /* Rocket trail */
+        .rocket-trail {
+            position: absolute;
+            bottom: -15px;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        .go-to-top-btn:hover .rocket-trail {
+            height: 20px;
+        }
+
+        /* Rocket launch animation - UPDATED */
+        .go-to-top-btn.launching {
+            animation: rocketLaunchToTop 1.5s ease-in-out forwards !important;
+            pointer-events: none;
+        }
+
+        .go-to-top-btn.launching .fa-rocket {
+            animation: rocketLaunchSpin 1.2s linear;
+        }
+
+        .go-to-top-btn.launching .rocket-trail {
+            height: 40px;
+            background: linear-gradient(to top, #ff6b6b, #ffd166, #06d6a0, #118ab2);
+            animation: trailLaunchFlame 0.2s ease-in-out infinite alternate;
+            width: 8px;
+            bottom: -25px;
+        }
+
+        /* Keyframe animations - UPDATED */
+        @keyframes rocketHover {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes rocketLaunchToTop {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+                visibility: visible;
+                right: 30px;
+            }
+            20% {
+                transform: translateY(-50px) scale(1.2);
+                opacity: 1;
+            }
+            40% {
+                transform: translateY(-150px) scale(1.3);
+                right: 40px;
+                opacity: 0.9;
+            }
+            60% {
+                transform: translateY(-300px) scale(1.2);
+                opacity: 0.7;
+            }
+            80% {
+                transform: translateY(-500px) scale(0.8);
+                opacity: 0.4;
+                right: 25px;
+            }
+            90% {
+                transform: translateY(-650px) scale(0.5);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-800px) scale(0.3);
+                opacity: 0;
+                visibility: hidden;
+                right: 30px;
+            }
+        }
+
+        @keyframes rocketLaunchSpin {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            20% {
+                transform: rotate(15deg) scale(1.1);
+            }
+            40% {
+                transform: rotate(-10deg) scale(1.2);
+            }
+            60% {
+                transform: rotate(8deg) scale(1.1);
+            }
+            80% {
+                transform: rotate(-5deg) scale(0.9);
+            }
+            100% {
+                transform: rotate(0deg) scale(0.7);
+            }
+        }
+
+        @keyframes trailLaunchFlame {
+            0% {
+                opacity: 1;
+                filter: blur(0px);
+                height: 40px;
+            }
+            100% {
+                opacity: 0.6;
+                filter: blur(3px);
+                height: 60px;
+            }
+        }
+
+        /* Add star particles for launch effect */
+        .star-particle {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .go-to-top-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            @keyframes rocketLaunchToTop {
+                0% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    visibility: visible;
+                    right: 20px;
+                }
+                20% {
+                    transform: translateY(-40px) scale(1.2);
+                    opacity: 1;
+                }
+                40% {
+                    transform: translateY(-120px) scale(1.3);
+                    right: 30px;
+                    opacity: 0.9;
+                }
+                60% {
+                    transform: translateY(-250px) scale(1.2);
+                    opacity: 0.7;
+                }
+                80% {
+                    transform: translateY(-400px) scale(0.8);
+                    opacity: 0.4;
+                    right: 15px;
+                }
+                90% {
+                    transform: translateY(-500px) scale(0.5);
+                    opacity: 0.2;
+                }
+                100% {
+                    transform: translateY(-600px) scale(0.3);
+                    opacity: 0;
+                    visibility: hidden;
+                    right: 20px;
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .go-to-top-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        /* Mobile Scroll Buttons */
+        .mobile-scroll-btns {
+            display: none;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .mobile-scroll-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-scroll-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-scroll-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Hide desktop scroll buttons on mobile */
+        @media (max-width: 768px) {
+            .scroll-btn {
+                display: none;
+            }
+            
+            .mobile-scroll-btns {
+                display: flex;
+            }
+                              
+            .demo-card {
+                flex: 0 0 280px;
+            }
+            .nav-contact {
+                margin: 0 auto;
+                font-size: 16PX;
+                margin-left: 5px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero {
+                padding: 2rem 0 3rem 0;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-wrapper {
+                flex-direction: column;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+            .client-logo {
+                min-width: 120px;
+                padding: 1.2rem 1.5rem;
+            }
+            .tech-item {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .contact-card {
+                padding: 1.5rem;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .client-logo {
+                min-width: 100px;
+                padding: 1rem 1.2rem;
+            }
+            .client-logo .logo-icon-lg {
+                font-size: 2rem;
+            }
+            .tech-item {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            .tech-item i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container">
+        <!-- header -->
+        <nav class="navbar">
+            <div class="logo">
+                <a class="navbar-brand logo-icon" href="https://nextdigit.dev/">
+                    <img src="assets/img/logoC.png" width="65px" alt="LOGO" style="margin-top: 8px;"> 
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="#demand" data-key="nav-services">Services</a>
+                <a href="#projects" data-key="nav-products">Products</a>
+                <a href="#industries" data-key="nav-solutions">Solutions</a>
+                <a href="#process" data-key="nav-case-study">Case Study</a>
+                <a href="#" data-key="nav-next-module">Next Module</a>
+                <a href="#nexttools" data-key="nav-next-tools">Next Tools</a>
+                <a href="https://demo.nextdigit.dev/" class="nav-cta" data-key="nav-demo" target="_blank"> Live Demo</a>
+                <a href="#" data-key="nav-blog">Blog</a>
+                <a href="#contact" class="" data-key="nav-cta">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">🇧🇩 বাংলা</button>
+            </div>
+        </nav>
+
+
+        <!-- next-tools section -->
+        <section class="next-tools-section" id="nexttools">
+            <h2 class="section-title" data-key="next-tools-title">Next Tools</h2>
+            <p class="section-sub" data-key="next-tools-sub">Next Digits developed manytools and technologies for basic needs, providing versatile solutions. You can use them to streamline your workflow and boost productivity.</p>
+            <div class="next-tools-gird" id="nexttoolsGird">
+                <!-- injected by JS -->
+            </div>
+        </section>
+
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-brand">
+                <div class="logo" style="margin-bottom: 0.6rem;">
+                    <span class="logo-icon"><i class="fas fa-chevron-circle-right"></i></span>
+                    <span class="logo-text">Next<span>Digit</span></span>
+                    <a class="navbar-brand" href="https://nextdigit.dev/">
+                    <img src="assets/img/logo.png" width="120px" alt="LOGO" style="margin-top: 7px;"> 
+                </a>
+                </div>
+                <p data-key="footer-desc">Transforming innovative concepts into real-world applications with cutting-edge technology and creative problem-solving.</p>
+                <div class="footer-socials" style="margin-top: 1.2rem;">
+                    <a href="https://www.facebook.com/NextDigitOfficial" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/nextdigitofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/NextdigitOfficial" target="_blank"><i class="fab fa-github"></i></a> 
+                    <a href="https://www.linkedin.com/company/nextdigitofficial" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="https://www.threads.com/@nextdigitofficial" target="_blank"><i class="fab fa-threads"></i></a> -->
+                    <a href="https://x.com/Next_Digit" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="mailto:info@nextdigit.dev"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.youtube.com/@nextdigitofficial" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-brand footer-brand-next">
+                <div class="footer-links">
+                    <a href="#" data-key="footer-about-us">About Us</a>
+                    <a href="#" data-key="footer-privacy">Privacy</a>
+                    <a href="#" data-key="footer-careers">Careers</a>
+                    <a href="#contact" data-key="footer-contact">Contact</a>
+                    <a href="#" data-key="footer-blog">Blog</a>
+                </div>
+                <img src="https://ksbnet.net/wp-content/uploads/2022/05/syscomputersltd-payment.png" alt="Payment Mathod" width="100%" height="auto">
+            </div>
+            
+            <div class="footer-brand footer-brand-next">
+                <div class="footer-contact">
+                    <i class="fas fa-phone-alt"></i> +8801830996044 <br>
+                    <i class="fas fa-envelope"></i> info@nextdigit.dev <br>
+                    <i class="fas fa-map-marker-alt"></i>Dhanmondi-15, Dhaka, Bangladesh
+                </div>
+                <div class="footer-links footer-links-next">
+                    <img src="assets/img/bid.png" alt="Payment Mathod" width="25%" height="auto">
+                    <img src="assets/img/ecab.png" alt="Payment Mathod" width="25%" height="auto">
+                    <img src="assets/img/duns.png" alt="Payment Mathod" width="25%" height="auto">
+                </div>
+            </div>
+        </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/+8801714787250" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <!-- Go to Top Rocket Button -->
+    <button id="goToTop" class="go-to-top-btn">
+        <i class="fas fa-rocket"></i>
+        <span class="rocket-trail"></span>
+    </button>
+
+
+        <div class="bottom-bar">
+            &copy; 2026 Next Digit — <span data-key="footer-tagline">Next Tech, Next Innovation, Next Solution.</span>
+        </div>
+    </div>
+
+    
+    <script>
+        (function() {
+            // ---------- THEME ----------
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            function setTheme(theme) {
+                body.classList.remove('light', 'dark');
+                body.classList.add(theme);
+                if (theme === 'light') {
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const current = body.classList.contains('dark') ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                setTheme(next);
+            });
+
+            // ---------- LANGUAGE ----------
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = localStorage.getItem('lang') || 'en';
+
+            const translations = {
+                en: {
+                    'badge': 'Next Tech, Next Innovation, Next Solution',
+                    'hero-line1': 'Transforming',
+                    'hero-line2': 'ideas into impact',
+                    'hero-desc': 'Next Digit bridges cutting-edge technology and creative problem-solving to turn innovative concepts into real-world applications.',
+                    'hero-btn1': 'Explore work',
+                    'hero-btn2': 'How we think',
+                    'grid1': 'Edge AI',
+                    'grid1-sub': 'real-time intelligence',
+                    'grid2': 'Cloud Native',
+                    'grid2-sub': 'scalable & resilient',
+                    'grid3': 'Zero-trust',
+                    'grid3-sub': 'security first',
+                    'grid4': 'Automation',
+                    'grid4-sub': 'smart workflows',
+                    'services-title': 'What we deliver',
+                    'services-sub': 'From concept to code — we build future-ready software that solves real problems.',
+                    'srv1': 'Custom Dev',
+                    'srv1-desc': 'Tailored platforms, APIs, and microservices built with modern stacks.',
+                    'srv2': 'AI & Analytics',
+                    'srv2-desc': 'Predictive models, NLP, and data pipelines that drive decisions.',
+                    'srv3': 'Mobile & Web',
+                    'srv3-desc': 'Cross-platform apps with seamless UX and high performance.',
+                    'srv4': 'Cloud Strategy',
+                    'srv4-desc': 'Architecture, migration, and DevOps for scale and reliability.',
+                    'stat1': 'faster time-to-market',
+                    'stat2': 'projects delivered',
+                    'stat3': 'innovation support',
+                    'stat4': 'Projects',
+                    'stat5': 'Happy Clients',
+                    'stat6': 'Years Experienced',
+                    'sol-title': 'Next Tech, <br>Next Innovation, Next Solution',
+                    'sol-desc': 'We don\'t just write code — we engineer ecosystems. Our approach combines deep technical expertise with creative problem-solving.',
+                    'sol-li1': 'Agile & human-centered design',
+                    'sol-li2': 'Cutting-edge stack: Go, Rust, Python, React, AI/ML',
+                    'sol-li3': 'Built for scale, security, and longevity',
+                    'sol-btn': 'Start a project',
+                    'sol-vis-title': 'Innovation as a service',
+                    'sol-vis-desc': 'We partner with you from ideation to deployment, ensuring every line of code delivers value.',
+                    'sol-quote': 'Next Digit turned our vision into a platform that scaled 10x.',
+                    'footer-desc': 'Transforming innovative concepts into real-world applications with cutting-edge technology and creative problem-solving.',
+                    'footer-about-us': 'About Us',
+                    'footer-privacy': 'Privacy',
+                    'footer-careers': 'Careers',
+                    'footer-contact': 'Contact',
+                    'footer-blog': 'Blog',
+                    'footer-tagline': 'Next Tech, Next Innovation, Next Solution.',
+                    'nav-home': 'Home',
+                    'nav-services': 'Services',
+                    'nav-products': 'Products',
+                    'nav-solutions': 'Solutions',
+                    'nav-demo': 'Live Demo',
+                    'nav-case-study': 'Case Study',
+                    'nav-next-module': 'Next Module',
+                    'nav-blog': 'Blog',
+                    'nav-next-tools': 'Next Tools',
+                    'nav-cta': 'Contact',
+                    'contact-title': 'Let\'s talk',
+                    'contact-sub': 'Have a project in mind? Reach out and let\'s build something extraordinary.',
+                    'contact-info-title': 'Get in touch',
+                    'contact-info-desc': 'We\'re here to help you turn your vision into reality. Whether it\'s a new product, a platform upgrade, or a bold idea — let\'s talk.',
+                    'contact-info-collaborate': 'Let\'s collaborate to bring your ideas to life and turn complex challenges into intuitive digital experiences.',
+                    'contact-address': 'Dhanmondi-15, Dhaka, Bangladesh',
+                    'form-name': 'Your Name',
+                    'form-email': 'Email Address',
+                    'form-message': 'Message',
+                    'form-submit': 'Send message',
+                    'form-success': 'Thank you! We\'ll get back to you within 24 hours.',
+                    'projects-title': 'Explore our work',
+                    'projects-sub': 'Real-world solutions built with cutting-edge technology and creative thinking.',
+                    'industry-title': 'Industry We Serve',
+                    'industry-sub': 'Bridge Your Business with the Virtual World - We provide a time-worthy business solution to every type of business. Find out your one and level up your success stairs.',
+                    'process-title': 'Our process',
+                    'process-sub': 'A proven framework that turns your vision into a scalable, secure reality.',
+                    'next-tools-title': 'Next Tools',
+                    'next-tools-sub': 'Next Digits developed many tools and technologies for basic needs, providing versatile solutions. You can use them to streamline your workflow and boost productivity.',
+                    'demand-title': 'The Industries We Transform',
+                    'demand-sub': 'We focus on the exact requirements of the clients. We design and develop the best and most advanced software for all types of businesses.',
+                    'demand-cta-text': 'Share Your Demand to Design Any Customized Software',
+                    'demand-cta': 'Submit Request',
+                    'clients-title': 'Our Global Clients',
+                    'clients-sub': 'Trusted by industry leaders worldwide — powering innovation across the globe.',
+                    'tech-title': 'Technology Stack',
+                    'tech-sub': 'Our demos are built with modern technologies and best practices'
+                },
+                bn: {
+                    'badge': 'নেক্সট টেক, নেক্সট ইনোভেশন, নেক্সট সলিউশন',
+                    'hero-line1': 'পরিবর্তন',
+                    'hero-line2': 'ধারণা থেকে প্রভাব',
+                    'hero-desc': 'নেক্সট ডিজিট অত্যাধুনিক প্রযুক্তি এবং সৃজনশীল সমস্যা-সমাধানের মাধ্যমে উদ্ভাবনী ধারণাকে বাস্তব-বিশ্বের অ্যাপ্লিকেশনে রূপান্তরিত করে।',
+                    'hero-btn1': 'কাজ দেখুন',
+                    'hero-btn2': 'আমাদের চিন্তা',
+                    'grid1': 'এজ এআই',
+                    'grid1-sub': 'রিয়েল-টাইম বুদ্ধিমত্তা',
+                    'grid2': 'ক্লাউড নেটিভ',
+                    'grid2-sub': 'স্কেলেবল এবং স্থিতিস্থাপক',
+                    'grid3': 'জিরো-ট্রাস্ট',
+                    'grid3-sub': 'প্রথমে নিরাপত্তা',
+                    'grid4': 'অটোমেশন',
+                    'grid4-sub': 'স্মার্ট ওয়ার্কফ্লো',
+                    'services-title': 'আমরা যা সরবরাহ করি',
+                    'services-sub': 'ধারণা থেকে কোড — আমরা ভবিষ্যৎ-প্রস্তুত সফটওয়্যার তৈরি করি যা বাস্তব সমস্যা সমাধান করে।',
+                    'srv1': 'কাস্টম ডেভ',
+                    'srv1-desc': 'আধুনিক স্ট্যাক দিয়ে তৈরি প্ল্যাটফর্ম, এপিআই এবং মাইক্রোসার্ভিস।',
+                    'srv2': 'এআই ও অ্যানালিটিক্স',
+                    'srv2-desc': 'প্রেডিক্টিভ মডেল, এনএলপি এবং ডেটা পাইপলাইন যা সিদ্ধান্ত গ্রহণে সহায়তা করে।',
+                    'srv3': 'মোবাইল ও ওয়েব',
+                    'srv3-desc': 'ক্রস-প্ল্যাটফর্ম অ্যাপ যা নির্বিঘ্ন ইউএক্স এবং উচ্চ কর্মক্ষমতা প্রদান করে।',
+                    'srv4': 'ক্লাউড স্ট্র্যাটেজি',
+                    'srv4-desc': 'স্কেল এবং নির্ভরযোগ্যতার জন্য আর্কিটেকচার, মাইগ্রেশন এবং ডেভঅপ্স।',
+                    'stat1': 'দ্রুত মার্কেট-টাইম',
+                    'stat2': 'প্রকল্প বিতরণ',
+                    'stat3': 'ইনোভেশন সাপোর্ট',
+                    'stat4': 'প্রকল্প',
+                    'stat5': 'সন্তুষ্ট ক্লায়েন্ট',
+                    'stat6': 'বছরের অভিজ্ঞতা',
+                    'sol-title': 'নেক্সট টেক, <br>নেক্সট ইনোভেশন, নেক্সট সলিউশন',
+                    'sol-desc': 'আমরা শুধু কোড লিখি না — আমরা ইকোসিস্টেম ইঞ্জিনিয়ার করি। আমাদের পদ্ধতি গভীর প্রযুক্তিগত দক্ষতা এবং সৃজনশীল সমস্যা-সমাধানকে একত্রিত করে।',
+                    'sol-li1': 'এজাইল ও মানবকেন্দ্রিক ডিজাইন',
+                    'sol-li2': 'অত্যাধুনিক স্ট্যাক: গো, রাস্ট, পাইথন, রিঅ্যাক্ট, এআই/এমএল',
+                    'sol-li3': 'স্কেল, নিরাপত্তা এবং দীর্ঘায়ুর জন্য নির্মিত',
+                    'sol-btn': 'প্রকল্প শুরু করুন',
+                    'sol-vis-title': 'পরিষেবা হিসাবে উদ্ভাবন',
+                    'sol-vis-desc': 'আমরা ধারণা থেকে স্থাপনা পর্যন্ত আপনার সাথে অংশীদারি করি, নিশ্চিত করি যে কোডের প্রতিটি লাইন মূল্য প্রদান করে।',
+                    'sol-quote': 'নেক্সট ডিজিট আমাদের দৃষ্টিভঙ্গিকে এমন একটি প্ল্যাটফর্মে রূপান্তরিত করেছে যা ১০x স্কেল হয়েছে।',
+                    'footer-desc': 'অত্যাধুনিক প্রযুক্তি এবং সৃজনশীল সমস্যা-সমাধানের মাধ্যমে উদ্ভাবনী ধারণাকে বাস্তব-বিশ্বের অ্যাপ্লিকেশনে রূপান্তরিত করা।',
+                    'footer-about-us': 'আমাদের সম্পর্কে',
+                    'footer-privacy': 'গোপনীয়তা',
+                    'footer-careers': 'ক্যারিয়ার',
+                    'footer-contact': 'যোগাযোগ',
+                    'footer-blog': 'ব্লগ',
+                    'footer-tagline': 'নেক্সট টেক, নেক্সট ইনোভেশন, নেক্সট সলিউশন।',
+                    'nav-home': 'হোম',
+                    'nav-services': 'সেবাসমূহ',
+                    'nav-products': 'প্রোডাক্টস',
+                    'nav-solutions': 'সমাধান',
+                    'nav-demo': 'ডেমো দেখুন',
+                    'nav-case-study': 'কেস-স্টাডি',
+                    'nav-blog': 'ব্লগ',
+                    'nav-next-module': 'নেক্সট মডিউল',
+                    'nav-next-tools': 'নেক্সট টুলস',
+                    'nav-cta': 'যোগাযোগ করুন',
+                    'contact-title': 'যোগাযোগ করুন',
+                    'contact-sub': 'কোন প্রকল্পের পরিকল্পনা আছে? আমাদের সাথে যোগাযোগ করুন এবং অসাধারণ কিছু তৈরি করি।',
+                    'contact-info-title': 'যোগাযোগ করুন',
+                    'contact-info-desc': 'আমরা আপনার দৃষ্টিভঙ্গিকে বাস্তবে রূপান্তর করতে সাহায্য করতে এখানে আছি। এটি একটি নতুন পণ্য, প্ল্যাটফর্ম আপগ্রেড বা একটি সাহসী ধারণা — কথা বলি।',
+                    'contact-info-collaborate': 'আসুন, আপনার ধারণাগুলোকে বাস্তবে রূপ দিতে এবং জটিল প্রতিবন্ধকতাগুলোকে সহজবোধ্য ডিজিটাল অভিজ্ঞতায় পরিণত করতে একসঙ্গে কাজ করি।',
+                    'contact-address': 'ধানমন্ডি-15, ঢাকা, বাংলাদেশ',
+                    'form-name': 'আপনার নাম',
+                    'form-email': 'ইমেইল ঠিকানা',
+                    'form-message': 'বার্তা',
+                    'form-submit': 'বার্তা পাঠান',
+                    'form-success': 'ধন্যবাদ! আমরা ২৪ ঘন্টার মধ্যে আপনার সাথে যোগাযোগ করব।',
+                    'projects-title': 'আমাদের কাজ দেখুন',
+                    'projects-sub': 'অত্যাধুনিক প্রযুক্তি এবং সৃজনশীল চিন্তাভাবনা দিয়ে তৈরি বাস্তব-বিশ্বের সমাধান।',
+                    'industry-title': 'আমরা যে শিল্পে সেবা দিই',
+                    'industry-sub': 'আপনার ব্যবসাকে ভার্চুয়াল বিশ্বের সাথে সংযুক্ত করুন - বিভিন্ন শিল্প সম্পর্কে আমাদের গভীর বোধগম্যতা আমাদের কাস্টমাইজড সফটওয়্যার সমাধান ডিজাইন করতে সক্ষম করে। আমাদের দক্ষতা আপনার পরবর্তী সাফল্যের অনুঘটক হোক।',
+                    'process-title': 'আমাদের প্রক্রিয়া',
+                    'process-sub': 'একটি প্রমাণিত কাঠামো যা আপনার দৃষ্টিভঙ্গিকে স্কেলেবল, নিরাপদ বাস্তবে রূপান্তরিত করে।',
+                    'next-tools-title': 'নেক্সট টুলস',
+                    'next-tools-sub': 'নেক্সট ডিজিট বিভিন্ন প্রয়োজনের জন্য অনেকগুলি টুল এবং প্রযুক্তি তৈরি করেছে, বহুমুখী সমাধান প্রদান করছে। আপনি এগুলি ব্যবহার করে আপনার ওয়ার্কফ্লোকে সহজতর করতে এবং উৎপাদনশীলতা বাড়াতে পারেন।',
+                    'demand-title': 'আমরা যে শিল্পে রূপান্তর করি',
+                    'demand-sub': 'আমরা ক্লায়েন্টদের সঠিক প্রয়োজনীয়তার উপর মনোযোগ দিই। আমরা সমস্ত ধরণের ব্যবসার জন্য সেরা এবং সবচেয়ে উন্নত সফ্টওয়্যার ডিজাইন এবং বিকাশ করি।',
+                    'demand-cta-text': 'যেকোনো কাস্টমাইজড সফ্টওয়্যার ডিজাইন করার জন্য আপনার চাহিদা শেয়ার করুন',
+                    'demand-cta': 'অনুরোধ জমা দিন',
+                    'clients-title': 'আমাদের বৈশ্বিক ক্লায়েন্ট',
+                    'clients-sub': 'বিশ্বব্যাপী শিল্প নেতাদের দ্বারা বিশ্বস্ত — সারা বিশ্বে উদ্ভাবন চালিত।',
+                    'tech-title': 'প্রযুক্তি স্ট্যাক',
+                    'tech-sub': 'আমাদের ডেমোগুলি আধুনিক প্রযুক্তি এবং সর্বোত্তম অনুশীলনের সাথে তৈরি করা হয়েছে'
+                }
+            };
+
+            function applyLanguage(lang) {
+                const elements = document.querySelectorAll('[data-key]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key] !== undefined) {
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            el.placeholder = translations[lang][key];
+                        } else {
+                            el.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+                langToggle.textContent = lang === 'en' ? '🇧🇩 বাংলা' : '🇬🇧 English';
+                localStorage.setItem('lang', lang);
+                currentLang = lang;
+            }
+
+            applyLanguage(currentLang);
+
+            langToggle.addEventListener('click', () => {
+                const next = currentLang === 'en' ? 'bn' : 'en';
+                applyLanguage(next);
+            });
+
+            
+
+            // ---------- NEXT TOOLS DATA ----------
+            const nexttoolsList = [
+                'Temp Mail', 'Age Calculator', 'Link Shortener', 'Fonts Collection', 'Photo Card', 'Code Snippet',
+                'Health Tracker', 'Startup Launchpad', 'Photo Editor', 'Business Card Generator', 'AI Chatbot',
+                'VR Experience', 'Legal Document Generator', 'Charity Donation Platform', 'Landmark Finder',
+                'Fitness Tracker', 'Game Development Toolkit', 'T-Shirt Designer', 'Electric Vehicle Charger Finder',
+                'Plant Care Guide', 'Logistics Management System'
+            ];
+
+            const nexttoolsGird = document.getElementById('nexttoolsGird');
+            const nexttoolsIcons = [
+                'fa-envelope', 'fa-calculator', 'fa-link', 'fa-font', 'fa-image', 'fa-code',
+                'fa-heartbeat', 'fa-rocket', 'fa-edit', 'fa-id-card', 'fa-robot',
+                'fa-vr-cardboard', 'fa-file-contract', 'fa-hand-holding-heart', 'fa-map-marker-alt',
+                'fa-dumbbell', 'fa-gamepad', 'fa-tshirt', 'fa-charging-station',
+                'fa-seedling', 'fa-truck'
+            ];
+
+            const nexttoolsURL = [
+                'https://tools.nextdigit.dev/next-mail', 'https://tools.nextdigit.dev/age-calculator', 'https://tools.nextdigit.dev/link-shortener', 
+                'https://tools.nextdigit.dev/fonts-collection', 'https://tools.nextdigit.dev/photo-card', 'https://tools.nextdigit.dev/code-snippet',
+                'https://tools.nextdigit.dev/health-tracker', 'https://tools.nextdigit.dev/startup-launchpad', 'https://tools.nextdigit.dev/photo-editor', 
+                'https://tools.nextdigit.dev/business-card-generator', 'https://tools.nextdigit.dev/ai-chatbot', 'https://tools.nextdigit.dev/vr-experience', 
+                'https://tools.nextdigit.dev/legal-document-generator', 'https://tools.nextdigit.dev/charity-donation-platform', 
+                'https://tools.nextdigit.dev/landmark-finder', 'https://tools.nextdigit.dev/fitness-tracker', 'https://tools.nextdigit.dev/game-development-toolkit', 
+                'https://tools.nextdigit.dev/t-shirt-designer', 'https://tools.nextdigit.dev/electric-vehicle-charger-finder',
+                'https://tools.nextdigit.dev/plant-care-guide', 'https://tools.nextdigit.dev/logistics-management-system'
+            ];
+
+            
+
+            nexttoolsList.forEach((item, index) => {
+                const el = document.createElement('a');
+                el.href = nexttoolsURL[index];
+                el.target = '_blank'; 
+                el.className = 'next-tools-item';
+                const icon = nexttoolsIcons[index % nexttoolsIcons.length];
+                el.innerHTML = `
+                    <i class="fas ${icon}"></i>
+                    <span>${item}</span>
+                `;
+                nexttoolsGird.appendChild(el);
+            });
+
+
+            
+            // WhatsApp button fade-in effect
+            document.addEventListener('DOMContentLoaded', function() {
+                const whatsappBtn = document.querySelector('.whatsapp-btn');
+                if (whatsappBtn) {
+                    // Add fade-in class after page loads
+                    setTimeout(() => {
+                        whatsappBtn.style.opacity = '0';
+                        whatsappBtn.style.transform = 'translateY(20px)';
+                        whatsappBtn.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        
+                        setTimeout(() => {
+                            whatsappBtn.style.opacity = '1';
+                            whatsappBtn.style.transform = 'translateY(0)';
+                        }, 100);
+                    }, 1000);
+                }
+            });
+
+            // Go to Top Rocket functionality - FIXED
+            const goToTopBtn = document.getElementById('goToTop');
+
+            // Show/hide button on scroll - FIXED
+            window.addEventListener('scroll', function() {
+                if (goToTopBtn) {
+                    if (window.scrollY > 300) {
+                        goToTopBtn.classList.add('visible');
+                    } else {
+                        goToTopBtn.classList.remove('visible');
+                    }
+                }
+            });
+
+            // Function to create star particles
+            function createStarParticles(x, y, count = 8) {
+                for (let i = 0; i < count; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star-particle';
+                    
+                    // Random size
+                    const size = Math.random() * 4 + 2;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    
+                    // Random position around rocket
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 30 + 10;
+                    const starX = x + Math.cos(angle) * distance;
+                    const starY = y + Math.sin(angle) * distance;
+                    
+                    star.style.left = `${starX}px`;
+                    star.style.top = `${starY}px`;
+                    
+                    // Random animation
+                    const duration = Math.random() * 0.5 + 0.3;
+                    const moveX = (Math.random() - 0.5) * 100;
+                    const moveY = (Math.random() - 0.5) * 100 - 50;
+                    
+                    star.style.animation = `starLaunch ${duration}s ease-out forwards`;
+                    star.style.setProperty('--move-x', `${moveX}px`);
+                    star.style.setProperty('--move-y', `${moveY}px`);
+                    
+                    document.body.appendChild(star);
+                    
+                    // Remove star after animation
+                    setTimeout(() => {
+                        if (star.parentNode) {
+                            star.remove();
+                        }
+                    }, duration * 1000);
+                }
+            }
+
+            // Add CSS for star animation
+            const starStyle = document.createElement('style');
+            starStyle.textContent = `
+                @keyframes starLaunch {
+                    0% {
+                        transform: translate(0, 0) scale(1);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translate(var(--move-x), var(--move-y)) scale(0);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(starStyle);
+
+            // Rocket launch animation and scroll to top - FIXED
+            if (goToTopBtn) {
+                goToTopBtn.addEventListener('click', function() {
+                    // Prevent multiple clicks during animation
+                    if (goToTopBtn.classList.contains('launching')) return;
+                    
+                    // Get rocket position
+                    const rocketRect = goToTopBtn.getBoundingClientRect();
+                    const rocketCenterX = rocketRect.left + rocketRect.width / 2;
+                    const rocketCenterY = rocketRect.top + rocketRect.height / 2;
+                    
+                    // Create star particles
+                    createStarParticles(rocketCenterX, rocketCenterY, 12);
+                    
+                    // Add launching class for animation
+                    goToTopBtn.classList.add('launching');
+
+                    // Play launch sound effect (optional)
+                    playLaunchSound();
+                    
+                    // Start page scroll after a short delay (as rocket starts launching)
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 400);
+                    
+                    // Remove launching class and reset after animation completes
+                    setTimeout(() => {
+                        goToTopBtn.classList.remove('launching');
+                        goToTopBtn.classList.remove('visible');
+                        
+                        // Re-add visible class after reset if user has scrolled down again
+                        setTimeout(() => {
+                            if (window.scrollY > 300) {
+                                goToTopBtn.classList.add('visible');
+                            }
+                        }, 500);
+                    }, 1500);
+                });
+            }
+            
+            // Optional sound effect function
+            function playLaunchSound() {
+                try {
+                    // Simple beep sound for launch
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    // Launch sound: low to high frequency
+                    oscillator.frequency.setValueAtTime(150, audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.8);
+                    
+                    // Volume envelope
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.05, audioContext.currentTime + 0.8);
+                    
+                    oscillator.start();
+                    oscillator.stop(audioContext.currentTime + 0.8);
+                    
+                    // Add explosion sound after delay
+                    setTimeout(() => {
+                        try {
+                            const explosionOsc = audioContext.createOscillator();
+                            const explosionGain = audioContext.createGain();
+                            
+                            explosionOsc.connect(explosionGain);
+                            explosionGain.connect(audioContext.destination);
+                            
+                            explosionOsc.frequency.setValueAtTime(300, audioContext.currentTime);
+                            explosionOsc.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.3);
+                            
+                            explosionGain.gain.setValueAtTime(0.08, audioContext.currentTime);
+                            explosionGain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                            
+                            explosionOsc.start();
+                            explosionOsc.stop(audioContext.currentTime + 0.3);
+                        } catch (e) {
+                            // Ignore explosion sound error
+                        }
+                    }, 1200);
+                } catch (e) {
+                    // Audio not supported or user blocked it
+                    console.log("Audio context not supported - continuing without sound");
+                }
+            }
+
+
+            console.log('🚀 Next Digit — Next Tech, Next Innovation, Next Solution');
+        })();
+    </script>
+
+ <!-- nexttoolsList.forEach((item, index) => {
+                const el = document.createElement('div');
+                el.className = 'next-tools-item';
+                const icon = nexttoolsIcons[index % nexttoolsIcons.length];
+                el.innerHTML = `
+                    <i class="fas ${icon}"></i>
+                    <span>${item}</span>
+                `;
+                nexttoolsGird.appendChild(el);
+            });    -->
+</body>
+</html>
+
